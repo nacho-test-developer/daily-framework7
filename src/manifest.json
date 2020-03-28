@@ -1,7 +1,7 @@
 {
-  "name": "Daily",
-  "short_name": "Daily",
-  "description": "Daily",
+  "name": "Daily7",
+  "short_name": "Daily7",
+  "description": "Daily7",
   "lang": "en-US",
   "start_url": "/",
   "display": "standalone",

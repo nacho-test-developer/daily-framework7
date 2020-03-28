@@ -1,8 +1,8 @@
 {
-  "name": "daily",
+  "name": "daily7",
   "private": true,
   "version": "1.0.0",
-  "description": "Daily",
+  "description": "Daily7",
   "repository": "",
   "license": "UNLICENSED",
   "framework7": {
@@ -10,7 +10,7 @@
     "type": [
       "pwa"
     ],
-    "name": "Daily",
+    "name": "Daily7",
     "framework": "vue",
     "template": "single-view",
     "bundler": "webpack",
@@ -33,7 +33,7 @@
   },
   "scripts": {
     "start": "npm run dev",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.config.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.config.js --host 0.0.0.0",
     "build-dev": "cross-env NODE_ENV=development node ./build/build.js",
     "build-prod": "cross-env NODE_ENV=production node ./build/build.js",
     "postinstall": "cpy ./node_modules/framework7-icons/fonts/*.* ./src/fonts/"
