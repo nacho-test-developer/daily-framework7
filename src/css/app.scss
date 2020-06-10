@@ -7,3 +7,10 @@
 }
 
 /* Your app custom styles here */
+.ios {
+  .view {
+    height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}

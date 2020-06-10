@@ -20,6 +20,9 @@ import App from '../components/app.vue';
 // Init Framework7-Vue Plugin
 Framework7.use(Framework7Vue);
 
+// ios no bounce
+import './inobounce.js'
+
 // Init App
 new Vue({
   el: '#app',

@@ -2,7 +2,8 @@
 import HomePage from '../pages/home.vue';
 import AboutPage from '../pages/about.vue';
 import FormPage from '../pages/form.vue';
-
+import TasksPage from '../pages/tasks.vue';
+import TestPage from '../pages/test.vue';
 
 import DynamicRoutePage from '../pages/dynamic-route.vue';
 import RequestAndLoad from '../pages/request-and-load.vue';
@@ -10,26 +11,33 @@ import NotFoundPage from '../pages/404.vue';
 
 var routes = [
   {
-    path: '/',
+    path: "/",
     component: HomePage,
   },
   {
-    path: '/about/',
+    path: "/about/",
     component: AboutPage,
   },
   {
-    path: '/form/',
+    path: "/form/",
     component: FormPage,
   },
-
+  {
+    path: "/tasks/",
+    component: TasksPage,
+  },
+  {
+    path: "/test/",
+    component: TestPage,
+  },
 
   {
-    path: '/dynamic-route/blog/:blogId/post/:postId/',
+    path: "/dynamic-route/blog/:blogId/post/:postId/",
     component: DynamicRoutePage,
   },
   {
-    path: '/request-and-load/user/:userId/',
-    async: function (routeTo, routeFrom, resolve, reject) {
+    path: "/request-and-load/user/:userId/",
+    async: function(routeTo, routeFrom, resolve, reject) {
       // Router instance
       var router = this;
 
@@ -43,22 +51,22 @@ var routes = [
       var userId = routeTo.params.userId;
 
       // Simulate Ajax Request
-      setTimeout(function () {
+      setTimeout(function() {
         // We got user data from request
         var user = {
-          firstName: 'Vladimir',
-          lastName: 'Kharlampidi',
-          about: 'Hello, i am creator of Framework7! Hope you like it!',
+          firstName: "Vladimir",
+          lastName: "Kharlampidi",
+          about: "Hello, i am creator of Framework7! Hope you like it!",
           links: [
             {
-              title: 'Framework7 Website',
-              url: 'http://framework7.io',
+              title: "Framework7 Website",
+              url: "http://framework7.io",
             },
             {
-              title: 'Framework7 Forum',
-              url: 'http://forum.framework7.io',
+              title: "Framework7 Forum",
+              url: "http://forum.framework7.io",
             },
-          ]
+          ],
         };
         // Hide Preloader
         app.preloader.hide();
@@ -71,14 +79,14 @@ var routes = [
           {
             context: {
               user: user,
-            }
+            },
           }
         );
       }, 1000);
     },
   },
   {
-    path: '(.*)',
+    path: "(.*)",
     component: NotFoundPage,
   },
 ];
