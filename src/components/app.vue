@@ -108,7 +108,7 @@ export default {
     return {
       // Framework7 Parameters
       f7params: {
-        name: 'Daily', // App name
+        name: 'Daily7', // App name
         theme: 'ios', // auto Automatic theme detection
 
         // App routes
@@ -140,13 +140,13 @@ export default {
     }
   },
   mounted() {
-    this.isLogout = true
-    if(this.isLogout) {
-      this.$f7.loginScreen.close();
-    }
+    // this.isLogout = false
+    // if(this.isLogout) {
+    //   this.$f7.loginScreen.close();
+    // }
     this.$f7ready((f7) => {
       // Call F7 APIs here
-      // f7.loginScreen.close()
+      f7.loginScreen.open('#my-login-screen')
     });
   }
 }
