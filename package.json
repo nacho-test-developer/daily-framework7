@@ -51,6 +51,7 @@
     "framework7": "^5.5.1",
     "framework7-icons": "^3.0.0",
     "framework7-vue": "^5.5.1",
+    "pwa-asset-generator": "^3.1.1",
     "template7": "^1.4.2",
     "vue": "^2.6.11"
   },

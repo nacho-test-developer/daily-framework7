@@ -76,3 +76,15 @@ framework7 generate-assets --ui
 
 Love Framework7? Support project by donating or pledging on patreon:
 https://patreon.com/vladimirkharlampidi
+
+## Splash generator
+
+```sh
+$ npx pwa-asset-generator ./src/static/splash-generator.png ./src/static/splash -i ./src/index.html --background "#131313" --splash-only --portrait-only
+```
+
+## Icon generator
+
+```sh
+$ npx pwa-asset-generator ./src/static/icon-generator.png ./src/static/icons -i ./src/index.html -m ./src/manifest.json --background "#131313" --icon-only
+```
