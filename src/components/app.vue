@@ -55,24 +55,24 @@
     <f7-view>
       <f7-page login-screen>
         <f7-login-screen-title>Login</f7-login-screen-title>
-        <f7-list form>
+        <f7-list form autocomplete="off">
           <f7-list-input
             type="text"
             name="username"
             placeholder="Your username"
-            :value="username"
-            @input="username = $event.target.value"
+            :value="login.username"
+            @input="login.username = $event.target.value"
           ></f7-list-input>
           <f7-list-input
             type="password"
             name="password"
             placeholder="Your password"
-            :value="password"
-            @input="password = $event.target.value"
+            :value="login.password"
+            @input="login.password = $event.target.value"
           ></f7-list-input>
         </f7-list>
         <f7-list>
-          <f7-list-button title="Sign In" @click="alertLoginData"></f7-list-button>
+          <f7-list-button :class="{'disabled': login.username != 'nacho'}" title="Sign In" @click="alertLoginData"></f7-list-button>
           <f7-block-footer>
             Some text about login information.<br>Click "Sign In" to close Login Screen
           </f7-block-footer>
@@ -100,8 +100,9 @@
 </template>
 
 <script>
+import { createTaskDB } from '@/services/_tasks.js'
 import Logo from '@/components/Logo.vue'
-import routes from '../js/routes.js';
+import routes from '../js/routes.js'
 
 export default {
   data() {
@@ -120,17 +121,22 @@ export default {
       },
 
       // Login screen data
-      username: '',
-      password: '',
+      login: {
+        username: 'nacho',
+        password: ''
+      },
       isLogout: Boolean
     }
+  },
+  created() {
+    createTaskDB()
   },
   components: {
     Logo
   },
   methods: {
     alertLoginData() {
-      this.$f7.dialog.alert('Username: ' + this.username + '<br>Password: ' + this.password, () => {
+      this.$f7.dialog.alert('Welcome ' + this.login.username + '!', () => {
         this.$f7.loginScreen.close();
       });
     },
@@ -140,13 +146,12 @@ export default {
     }
   },
   mounted() {
-    // this.isLogout = false
-    // if(this.isLogout) {
-    //   this.$f7.loginScreen.close();
-    // }
+    this.isLogout = false
     this.$f7ready((f7) => {
       // Call F7 APIs here
-      f7.loginScreen.open('#my-login-screen')
+      this.login.username 
+        ? console.log(this.login.username) 
+        : f7.loginScreen.open('#my-login-screen')
     });
   }
 }
